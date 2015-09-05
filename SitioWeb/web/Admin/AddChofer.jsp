@@ -27,7 +27,7 @@
                 <br>
                 <br>
                 <h3> Ingrese  todos los datos que a continuación se le solicitan para poder registrar al nuevo chofer</h3>
-                <form action="/AddChofer" method="POST">
+                <form action="/SitioWeb/AddChofer" method="POST">
                     <table border="0" cellpadding="5">
                         <thead>
                             <tr>
@@ -45,16 +45,20 @@
                                 <td><input name="txtApellido" required="true" type="text" width="200px" placeholder="Mendoza Chiguichón" /> </td>
                             </tr>
                             <tr>
+                                <td>Ingrese correo:</td>
+                                <td><input name="correoC" required="true" type="email" placeholder="user@dominio.com" ></td>
+                            </tr>
+                            <tr>
                                 <td>Ingrese la clave:</td>
                                 <td><input name="txtClave" required="true" type="number" placeholder="555"></td>
                             </tr>
                             <tr>
                                 <td>Ingrese contraseña:</td>
-                                <td><input name="contraEG" required="true" type="password" width="200px" placeholder="123456"/></td>
+                                <td><input name="contraC" required="true" type="password" width="200px" placeholder="123456"/></td>
                             </tr>
                             <tr>
                                 <td>Confirme contraseña:</td>
-                                <td><input name="confEG" required="true" type="password" placeHolder="123456"/></td>
+                                <td><input name="confC" required="true" type="password" placeHolder="123456"/></td>
                             </tr>
                             <tr>
                                 <td></td>   

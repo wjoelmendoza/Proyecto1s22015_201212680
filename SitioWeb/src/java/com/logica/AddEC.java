@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author walter
  */
-@WebServlet(name = "AddAdmin", urlPatterns = {"/AddAdmin"})
-public class AddAdmin extends HttpServlet {
+@WebServlet(name = "AddEC", urlPatterns = {"/AddEC"})
+public class AddEC extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +31,8 @@ public class AddAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        
-        response.sendRedirect("/SitioWeb/Admin/AgregarAdministrador.jsp");
+        response.sendRedirect("/SitioWeb/Admin/AddEC.jsp");
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -50,7 +47,6 @@ public class AddAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        this.processRequest(request, response);
     }
 
     /**
@@ -64,16 +60,13 @@ public class AddAdmin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int idEC =Integer.parseInt(request.getParameter("idEC"));
+        String nombreEC = request.getParameter("nombreEC");
+        String contra = request.getParameter("contraEC");
+        String rContra = request.getParameter("confEC");
+        this.addEstacionC(idEC, contra, nombreEC);
+        
         processRequest(request, response);
-        String correoAdmin = request.getParameter("txtMail");
-        String contra = request.getParameter("txtPass");
-        String rContra = request.getParameter("txtRPass");
-        if(!correoAdmin.isEmpty()&&!contra.isEmpty()&&!rContra.isEmpty()){
-            if(contra.equals(rContra)){
-                agregarAdministrador(correoAdmin, contra);
-            }
-        }
-       // chequear como hacer para retornar el error en caso que las contraseñas no coincidan
     }
 
     /**
@@ -86,10 +79,10 @@ public class AddAdmin extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void agregarAdministrador(java.lang.String correoAdmo, java.lang.String passAdmo) {
+    private void addEstacionC(int claveEC, java.lang.String contraEC, java.lang.String nombreEC) {
         com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
         com.webservice.WSEDD port = service.getWSEDDPort();
-        port.agregarAdministrador(correoAdmo, passAdmo);
+        port.addEstacionC(claveEC, contraEC, nombreEC);
     }
 
     

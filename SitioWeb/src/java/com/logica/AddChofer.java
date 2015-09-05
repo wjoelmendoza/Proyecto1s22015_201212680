@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author walter
  */
-@WebServlet(name = "AddAdmin", urlPatterns = {"/AddAdmin"})
-public class AddAdmin extends HttpServlet {
+@WebServlet(name = "AddChofer", urlPatterns = {"/AddChofer"})
+public class AddChofer extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +31,8 @@ public class AddAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        
-        response.sendRedirect("/SitioWeb/Admin/AgregarAdministrador.jsp");
+        response.sendRedirect("/SitioWeb/Admin/AddChofer.jsp");
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -50,7 +47,6 @@ public class AddAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        this.processRequest(request, response);
     }
 
     /**
@@ -65,15 +61,15 @@ public class AddAdmin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String correoAdmin = request.getParameter("txtMail");
-        String contra = request.getParameter("txtPass");
-        String rContra = request.getParameter("txtRPass");
-        if(!correoAdmin.isEmpty()&&!contra.isEmpty()&&!rContra.isEmpty()){
-            if(contra.equals(rContra)){
-                agregarAdministrador(correoAdmin, contra);
-            }
+        String nombre = request.getParameter("txtNombre");
+        String apellido = request.getParameter("txtApellido");
+        int clave = Integer.parseInt(request.getParameter("txtClave"));
+        String contraseña = request.getParameter("contraC");
+        String confC = request.getParameter("confC");
+        
+        if(confC.equals(contraseña)){
+            this.addChofer(clave, apellido, confC, confC, nombre);
         }
-       // chequear como hacer para retornar el error en caso que las contraseñas no coincidan
     }
 
     /**
@@ -86,10 +82,10 @@ public class AddAdmin extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void agregarAdministrador(java.lang.String correoAdmo, java.lang.String passAdmo) {
+    private void addChofer(int claveC, java.lang.String apellidoC, java.lang.String contraC, java.lang.String correoC, java.lang.String nombreC) {
         com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
         com.webservice.WSEDD port = service.getWSEDDPort();
-        port.agregarAdministrador(correoAdmo, passAdmo);
+        port.addChofer(claveC, apellidoC, contraC, correoC, nombreC);
     }
 
     

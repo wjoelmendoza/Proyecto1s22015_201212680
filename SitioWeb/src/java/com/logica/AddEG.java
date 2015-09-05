@@ -31,8 +31,9 @@ public class AddEG extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("AddEG.jsp");
+        response.sendRedirect("/SitioWeb/Admin/AddEG.jsp");
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -72,5 +73,11 @@ public class AddEG extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void addEstacionG(int claveEG, java.lang.String contraEG, java.lang.String nombreEG) {
+        com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
+        com.webservice.WSEDD port = service.getWSEDDPort();
+        port.addEstacionG(claveEG, contraEG, nombreEG);
+    }
 
 }

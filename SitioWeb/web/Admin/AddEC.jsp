@@ -27,7 +27,7 @@
                 <br>
                 <br>
                 <h3> Ingrese  todos los datos que a continuación se le solicitan para poder crear una estación Clave</h3>
-                <form action="/AddEC" method="POST">
+                <form action="/SitioWeb/AddEC" method="POST">
                     <table border="0" cellpadding="5">
                         <thead>
                             <tr>
