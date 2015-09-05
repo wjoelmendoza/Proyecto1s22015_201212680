@@ -11,8 +11,9 @@ import com.estructura.interfaces.Comparar;
  *
  * @author walter
  */
-public class Bus implements Comparar {
+public class Bus implements Comparar, Cloneable {
     private String id;
+    private Lista horarios ;
     
     /**
      * inicializa el objeto con el
@@ -21,6 +22,7 @@ public class Bus implements Comparar {
     
     
     public Bus(String id){
+        horarios= new Lista();
         this.id = id;
     }
 
@@ -54,7 +56,7 @@ public class Bus implements Comparar {
         
         int value = this.id.compareTo(aux.id);
         
-        System.out.println(value);
+        //System.out.println(value);
         return value > 0;
     }
 
@@ -85,6 +87,12 @@ public class Bus implements Comparar {
     
     @Override
     public String toString(){
-        return id+";";
+        return id;
+    }
+    
+    @Override
+    public Bus clone(){
+        Bus clon = new Bus (this.id);
+        return clon;
     }
 }

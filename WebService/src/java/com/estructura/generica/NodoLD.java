@@ -22,6 +22,10 @@ public class NodoLD <T> {
         return dato;
     }
     
+    public void setDato(T dato){
+        this.dato = dato;
+    }
+    
     public void setSiguiente(NodoLD<T> siguiente){
         this.siguiente = siguiente;
     }

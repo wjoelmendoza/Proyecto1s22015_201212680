@@ -13,23 +13,35 @@ import com.estructura.interfaces.Comparar;
  */
 public class PruebaPaquete {
     public static void main(String[] arg ){
-        ArbolAVL a1 = new ArbolAVL();
-        ArbolAVL avl = new ArbolAVL();
-        avl.insertar(new Numero(40));
-        avl.insertar(new Numero(4));
-        avl.insertar(new Numero(3));
-        avl.insertar(new Numero(60));
-        avl.inorden(avl.getRaiz());
-        System.out.println();
+        ListaBuses a1 = new ListaBuses();
+//        ArbolAVL avl = new ArbolAVL();
+//        avl.insertar(new Numero(40));
+//        avl.insertar(new Numero(4));
+//        avl.insertar(new Numero(3));
+//        avl.insertar(new Numero(60));
+//        avl.insertar(new Numero(30));
+//        avl.insertar(new Numero(2));
+//        avl.insertar(new Numero(1));
+//        avl.insertar(new Numero(61));
+//        avl.insertar(new Numero(63));
+//        avl.insertar(new Numero(64));
+//        avl.insertar(new Numero(62));
+//        avl.insertar(new Numero(65));
+       // avl.inorden(avl.getRaiz());
+       // System.out.println();
         
-        avl.eliminar(new Numero(60));
-        avl.inorden(avl.getRaiz());
-        System.out.println();
+        //avl.eliminar(new Numero(60));
+        //avl.inorden(avl.getRaiz());
+       // System.out.println();
         
-        a1.insertar(new Bus("z"));
-        a1.insertar(new Bus("r"));
-        a1.insertar(new Bus("a"));
-        a1.inorden(a1.getRaiz());
+        //avl.graficarArbol();
+        a1.insertar(new Bus("20"));
+        a1.insertar(new Bus("25"));
+        a1.insertar(new Bus("2"));
+        a1.insertar(new Bus("0"));
+        a1.insertar(new Bus("1"));
+        a1.bubbleSort();
+        a1.graficar();
     }
 }
 
@@ -68,6 +80,6 @@ class Numero implements Comparar{
     
     @Override
     public String toString(){
-        return "" + valor +";";
+        return "" + valor;
     }
 }

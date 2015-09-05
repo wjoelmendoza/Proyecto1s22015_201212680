@@ -7,6 +7,8 @@ package com.estructura;
 
 import com.estructura.generica.NodoA;
 import com.estructura.interfaces.Comparar;
+import graphViz.GraphViz;
+import java.io.File;
 
 /**
  *
@@ -16,6 +18,8 @@ public class ArbolAVL {
     private NodoA raiz;
     private String datos;
     private boolean adherido;
+    private GraphViz gv;
+    private String nombreGra;
     
     public ArbolAVL(){
         raiz = null;
@@ -340,6 +344,38 @@ public class ArbolAVL {
             postorden(n.getNIzq());
             postorden(n.getNDer());
             System.out.println(n.getValor());
+        }
+    }
+    
+    public void graficarArbol(){
+        nombreGra="graph" + System.currentTimeMillis() +".png";
+        gv = new GraphViz();
+        gv.addln("graph {");
+        auxGraph(gv, raiz);
+        gv.addln( gv.end_graph() );
+        File ext = new File(nombreGra);
+        gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), "png"), ext);
+    }
+    
+    public String getImage(){
+        return nombreGra;
+    }
+    
+    private void auxGraph(GraphViz gv, NodoA nodo){
+        if(nodo!=null){
+            String aux = "n" + nodo.hashCode();
+            gv.add(aux);
+            gv.add("[label=\"" + nodo.getValor().toString()+"\"];\n");
+            
+            if(nodo.getNIzq()!=null){
+                gv.add(aux + " -- " +"n" + nodo.getNIzq().hashCode() +";\n");
+            }
+            if(nodo.getNDer()!=null){
+                gv.add(aux + " -- " + "n" + nodo.getNDer().hashCode()+";\n");
+            }
+            
+            auxGraph(gv, nodo.getNIzq());
+            auxGraph(gv, nodo.getNDer());
         }
     }
 }

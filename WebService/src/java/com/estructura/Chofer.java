@@ -17,8 +17,8 @@ public class Chofer implements Comparar {
     private final int clave;
     private String contrasenha;
     private String correo;
-    //pendiente lista de buses asignada
-    //pediente lista de tiemspos de visita
+    private ListaFecha fechas;
+    //lista de tiempos de visita pasa a ser un atributo del las fechas?
     /**
      * Crea un nuevo objeto con nombre chofer, correo chofer@chofer.com y contraseña
      * chofer 
