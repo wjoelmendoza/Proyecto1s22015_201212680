@@ -40,4 +40,12 @@ public class ArbolChofer {
         choferes.eliminar(aux);
     }
     
+    /**
+     * 
+     * @return  el URL de la gráfica para ser Accedida desde internet
+     */
+    public String graficar(){
+        choferes.graficarArbol("arbolAdmo");
+        return choferes.getImage();
+    }
 }

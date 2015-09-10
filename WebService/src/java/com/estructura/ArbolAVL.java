@@ -346,19 +346,27 @@ public class ArbolAVL {
             System.out.println(n.getValor());
         }
     }
-    
-    public void graficarArbol(){
-        nombreGra="graph" + System.currentTimeMillis() +".png";
+    /**
+     * 
+     * @param nombre es el nombre de la imagen
+     * se generara una imagen con el nombre recibido con extensión .png
+     */
+    public void graficarArbol(String nombre){
+        nombreGra = nombre + System.currentTimeMillis() +".png";
         gv = new GraphViz();
         gv.addln("graph {");
         auxGraph(gv, raiz);
         gv.addln( gv.end_graph() );
-        File ext = new File(nombreGra);
+        File ext = new File(Constantes.dirL +nombreGra);
         gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), "png"), ext);
     }
     
+    /**
+     * 
+     * @return La URL donde se podrá acceder la imagen generada
+     */
     public String getImage(){
-        return nombreGra;
+        return Constantes.dirW + nombreGra;
     }
     
     private void auxGraph(GraphViz gv, NodoA nodo){

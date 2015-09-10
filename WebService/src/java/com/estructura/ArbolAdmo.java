@@ -40,4 +40,8 @@ public class ArbolAdmo {
         return aux2;
     }
     
+    public String graficar(){
+        admos.graficarArbol("arbolAdmo");
+        return admos.getImage();
+    }
 }

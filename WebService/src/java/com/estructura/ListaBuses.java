@@ -93,7 +93,7 @@ public class ListaBuses {
     }
     public void graficar(){
         if(!vacia()){
-            nomGraf="lista" + System.currentTimeMillis() +".png";
+            nomGraf="listaBus" + System.currentTimeMillis() +".png";
             int i =0;
             gv = new GraphViz();
             gv.addln(gv.start_graph());
@@ -121,9 +121,12 @@ public class ListaBuses {
             }
             gv.addln(gv.end_graph());
             
-            File ext = new File(nomGraf);
+            File ext = new File(Constantes.dirL+nomGraf);
             gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), "png"), ext);
         }
     }
-
+    
+    public String getNombreGraf(){
+        return Constantes.dirW+ nomGraf;
+    }
 }

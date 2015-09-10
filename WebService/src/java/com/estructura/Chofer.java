@@ -14,7 +14,7 @@ import com.estructura.interfaces.Comparar;
 public class Chofer implements Comparar {
     private String nombre;
     private String apellido;
-    private final int clave;
+    private int clave;
     private String contrasenha;
     private String correo;
     private ListaFecha fechas;
@@ -90,4 +90,7 @@ public class Chofer implements Comparar {
         return this.clave == aux.clave;
     }
     
+    public void setClave(int clave){
+        this.clave = clave;
+    }
 }

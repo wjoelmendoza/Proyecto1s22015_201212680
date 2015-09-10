@@ -35,4 +35,9 @@ public class ArbolEstacionG {
         
         return aux1;
     }
+    
+    public String graficar(){
+        estaciones.graficarArbol("avlEG");
+        return estaciones.getImage();
+    }
 }

@@ -68,9 +68,9 @@ public class Lista {
         this.nomGraf = name;
     }
     
-    public void graficar(){
+    public void graficar(String nombre){
         if(!vacio()){
-            nomGraf="lista" + System.currentTimeMillis() +".png";
+            nomGraf=nombre + System.currentTimeMillis() +".png";
             int i =0;
             gv = new GraphViz();
             gv.addln(gv.start_graph());
@@ -98,8 +98,12 @@ public class Lista {
             }
             gv.addln(gv.end_graph());
             
-            File ext = new File(nomGraf);
+            File ext = new File(Constantes.dirL+nomGraf);
             gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), "png"), ext);
         }
+    }
+    
+    public String getImage(){
+        return Constantes.dirW + nomGraf;
     }
 }

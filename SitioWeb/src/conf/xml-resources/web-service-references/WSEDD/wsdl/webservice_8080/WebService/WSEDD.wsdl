@@ -25,6 +25,12 @@
 <message name="addEstacionG">
 <part name="parameters" element="tns:addEstacionG"/>
 </message>
+<message name="grafListaBuses">
+<part name="parameters" element="tns:grafListaBuses"/>
+</message>
+<message name="grafListaBusesResponse">
+<part name="parameters" element="tns:grafListaBusesResponse"/>
+</message>
 <portType name="WSEDD">
 <operation name="hello">
 <input wsam:Action="http://webservice.com/WSEDD/helloRequest" message="tns:hello"/>
@@ -44,6 +50,10 @@
 </operation>
 <operation name="addEstacionG">
 <input wsam:Action="http://webservice.com/WSEDD/addEstacionG" message="tns:addEstacionG"/>
+</operation>
+<operation name="grafListaBuses">
+<input wsam:Action="http://webservice.com/WSEDD/grafListaBusesRequest" message="tns:grafListaBuses"/>
+<output wsam:Action="http://webservice.com/WSEDD/grafListaBusesResponse" message="tns:grafListaBusesResponse"/>
 </operation>
 </portType>
 <binding name="WSEDDPortBinding" type="tns:WSEDD">
@@ -86,6 +96,15 @@
 <input>
 <soap:body use="literal"/>
 </input>
+</operation>
+<operation name="grafListaBuses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 </binding>
 <service name="WSEDD">

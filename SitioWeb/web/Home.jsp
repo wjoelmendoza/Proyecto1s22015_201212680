@@ -8,27 +8,61 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%@include file="/WEB-INF/jspf/MaStL.jspf" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <form action="" method="post">
-        <table>
-            <tr>
-                <td><label id="lbl1">Ingrese su correo Electrónico:</label></td>
-                <td><input type="email" required="true" placeHolder="correo@dominio.com" name="correo"  ></td>
-            </tr>
-            <tr>
-                <td><label id="lbl2">Ingrese su Contraseña:</label></td>
-                <td><input type="password" required="true" name="contrasena"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Ingresar"/></td>
-            </tr>
-        </table>
-    </form>
-    
+        <div id="page">
+            <%@include file= "../WEB-INF/jspf/header.jspf" %>
+            <div id="mainarea">
+                <%@include file="/WEB-INF/jspf/MasIn.jspf" %>
+               
+            <div id="contentarea" >
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            <h3>Ingrese los datos Correspondientes para crear un administrador:</h3>
+            <form method="post" action="/SitioWeb/AddAdmin">
+                <table>
+                    <tr>
+                        <td>Correo:</td>
+                        <td><input name="txtMail" type="email" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese su Contraseña:</td>
+                        <td><input name="txtPass" type="password" required/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="reset" value="Cancelar" />
+                        <input type="submit" value="Aceptar"/></td>
+                    </tr>
+                </table>
+            </form>
+             <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+        </div>
+               
+            </div>
+        <%@include file="../WEB-INF/jspf/Footer.jspf" %>
+        </div>
     </body>
 </html>

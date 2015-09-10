@@ -5,8 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../WEB-INF/jspf/MasterStyle.jspf" %>
@@ -38,27 +37,27 @@
                         <tbody>
                             <tr>
                                 <td>Ingrese Nombre:</td>
-                                <td><input name="txtNombre" type="text" required="true" min="0" width="200px" placeholder="Walter Joel"/></td>
+                                <td><input name="txtNombre" type="text" required   placeholder="Walter Joel"/></td>
                             </tr>
                             <tr>
                                 <td>Ingrese el Apellido:</td>
-                                <td><input name="txtApellido" required="true" type="text" width="200px" placeholder="Mendoza Chiguichón" /> </td>
+                                <td><input name="txtApellido" required type="text"  placeholder="Mendoza Chiguichón" /> </td>
                             </tr>
                             <tr>
                                 <td>Ingrese correo:</td>
-                                <td><input name="correoC" required="true" type="email" placeholder="user@dominio.com" ></td>
+                                <td><input name="correoC" required type="email" placeholder="user@dominio.com" ></td>
                             </tr>
                             <tr>
                                 <td>Ingrese la clave:</td>
-                                <td><input name="txtClave" required="true" type="number" placeholder="555"></td>
+                                <td><input name="txtClave" required type="number" placeholder="555"></td>
                             </tr>
                             <tr>
                                 <td>Ingrese contraseña:</td>
-                                <td><input name="contraC" required="true" type="password" width="200px" placeholder="123456"/></td>
+                                <td><input name="contraC" required type="password" placeholder="123456"/></td>
                             </tr>
                             <tr>
                                 <td>Confirme contraseña:</td>
-                                <td><input name="confC" required="true" type="password" placeHolder="123456"/></td>
+                                <td><input name="confC" required type="password" placeHolder="123456"/></td>
                             </tr>
                             <tr>
                                 <td></td>   

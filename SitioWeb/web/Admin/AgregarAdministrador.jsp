@@ -35,15 +35,15 @@
                 <table>
                     <tr>
                         <td>Correo:</td>
-                        <td><input name="txtMail" type="email" required="true"/></td>
+                        <td><input name="txtMail" type="email" required/></td>
                     </tr>
                     <tr>
                         <td>Ingrese su Contraseña:</td>
-                        <td><input name="txtPass" type="password" required="true"/></td>
+                        <td><input name="txtPass" type="password" required/></td>
                     </tr>
                     <tr>
                         <td>Reingrese su Contraseña:</td>
-                        <td><input name="txtRPass" type="password" required="true"/></td>
+                        <td><input name="txtRPass" type="password" required/></td>
                     </tr>
                     <tr>
                         <td></td>

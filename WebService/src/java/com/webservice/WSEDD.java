@@ -101,6 +101,54 @@ public class WSEDD {
         estacionesG.agregar(new EstacionGeneral(claveEG, 0,contraEG, nombreEG));
         
     }
+
+    /**
+     * Web service operation
+     * @param parameter
+     * @return 
+     */
+    @WebMethod(operationName = "grafListaBuses")
+    public String grafListaBuses(@WebParam(name = "parameter") String parameter) {
+        //TODO write your implementation code here:
+        buses.graficar();
+        return buses.getNombreGraf();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graficarAVLChoferes")
+    public String graficarAVLChoferes() {
+        //TODO write your implementation code here:
+        return arbolChofer.graficar();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graficarAVLAdmo")
+    public String graficarAVLAdmo() {
+        //TODO write your implementation code here:
+        return arbolAdmo.graficar();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graficarAVLEG")
+    public String graficarAVLEG() {
+        //TODO write your implementation code here:
+        return estacionesG.graficar();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graficarAVLEC")
+    public String graficarAVLEC() {
+        //TODO write your implementation code here:
+        return estacionesC.graficar();
+    }
     
     
 

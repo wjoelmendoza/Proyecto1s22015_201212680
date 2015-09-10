@@ -10,9 +10,25 @@
 
 <xs:element name="agregarAdministrador" type="tns:agregarAdministrador"/>
 
+<xs:element name="grafListaBuses" type="tns:grafListaBuses"/>
+
+<xs:element name="grafListaBusesResponse" type="tns:grafListaBusesResponse"/>
+
 <xs:element name="hello" type="tns:hello"/>
 
 <xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:complexType name="grafListaBuses">
+<xs:sequence>
+<xs:element name="parameter" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="grafListaBusesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="agregarAdministrador">
 <xs:sequence>

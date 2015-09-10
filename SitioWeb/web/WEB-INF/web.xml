@@ -25,7 +25,10 @@
         <description>direccion de almacenamiento de la carga de archivos</description>
         <param-name>file-upload</param-name>
         <param-value>
-            /home/walter/apache-tomcat-8.0.24/webapps/dats
+            /home/walter/apache-tomcat-8.0.24/webapps/datos
         </param-value>
     </context-param>
+    <welcome-file-list>
+        <welcome-file>Home.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

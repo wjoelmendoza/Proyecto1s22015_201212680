@@ -3,8 +3,10 @@
 <div id="sidebar">
 		<div id="sidebarnav">
 		<a href="AgregarAdministrador.jsp">Agregar Administrador</a>
+                <a href="AddBus.jsp">Agregar Buses</a>
+                <a href="AddChofer.jsp">Agregar Chofer</a>
+                <a href="AddEC.jsp">Agregar Estación Clave</a>
                 <a href="AddEG.jsp">Agregar Estación General</a>
-		<a href="AddEC.jsp">Agregar Estación Clave</a>
-		<a href="AddChofer.jsp">Agregar Chofer</a>
+                <a href="ReporteBuses.jsp">Ver Buses</a>
                 </div>
 </div>
