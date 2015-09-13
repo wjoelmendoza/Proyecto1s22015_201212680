@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author walter
  */
-@WebServlet(name = "AddEC", urlPatterns = {"/AddEC"})
-public class AddEC extends HttpServlet {
+@WebServlet(name = "EliminarEG", urlPatterns = {"/EliminarEG"})
+public class EliminarEG extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,7 +31,7 @@ public class AddEC extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("/SitioWeb/Admin/AddEC.jsp");
+        response.sendRedirect("/SitioWeb/Admin/Eliminar.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,14 +60,9 @@ public class AddEC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idEC =Integer.parseInt(request.getParameter("idEC"));
-        String nombreEC = request.getParameter("nombreEC");
-        String contra = request.getParameter("contraEC");
-        String rContra = request.getParameter("confEC");
-        if(rContra.equals(contra))
-            this.addEstacionC(idEC, contra, nombreEC);
-        
         processRequest(request, response);
+        int idEG = Integer.parseInt(request.getParameter("idEG"));
+        this.eliminarEstacioG(idEG);
     }
 
     /**
@@ -80,11 +75,10 @@ public class AddEC extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void addEstacionC(int claveEC, java.lang.String contraEC, java.lang.String nombreEC) {
+    private void eliminarEstacioG(int clave) {
         com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
         com.webservice.WSEDD port = service.getWSEDDPort();
-        port.addEstacionC(claveEC, contraEC, nombreEC);
+        port.eliminarEstacioG(clave);
     }
 
-    
 }

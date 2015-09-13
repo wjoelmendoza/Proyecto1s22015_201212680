@@ -27,7 +27,7 @@
                 <br>
                 <br>
                 <h3> Ingrese  todos los datos que a continuación se le solicitan para poder crear una estación General</h3>
-                <form action="/AddEG" method="POST">
+                <form action="/SitioWeb/AddEG" method="POST">
                     <table border="0" cellpadding="5">
                         <thead>
                             <tr>
@@ -38,19 +38,19 @@
                         <tbody>
                             <tr>
                                 <td>Ingrese el ID:</td>
-                                <td><input name="idEG" type="number" required="true" min="0" width="200px"/></td>
+                                <td><input name="idEG" type="number" required/></td>
                             </tr>
                             <tr>
                                 <td>Ingrese el Nombre:</td>
-                                <td><input name="nombreEG" required="true" type="text" width="200px"  placeholder="Centro Historico" /> </td>
+                                <td><input name="nombreEG" required type="text" placeholder="Centro Historico" /> </td>
                             </tr>
                             <tr>
                                 <td>Ingrese contraseña:</td>
-                                <td><input name="contraEG" required="true" type="password" width="200px" placeholder="123456"/></td>
+                                <td><input name="contraEG" required type="password" placeholder="123456"/></td>
                             </tr>
                             <tr>
                                 <td>Confirme contraseña:</td>
-                                <td><input name="confEG" required="true" type="password" placeHolder="123456"/></td>
+                                <td><input name="confEG" required type="password" placeHolder="123456"/></td>
                             </tr>
                             <tr>
                                 <td></td>   

@@ -15,6 +15,7 @@ public class Constantes {
      * de poder ser compartida
      */
     public static final String dirL="/home/virtualuser/Escritorio/WebService/build/web/images/";
+    //public static final String dirL="/home/walter/NetBeansProjects/Proyecto1s22015_201212680/WebService/build/web/images/";
     /**
      * Esta Constante indica la URL para poder acceder la imagen desde internet
      */

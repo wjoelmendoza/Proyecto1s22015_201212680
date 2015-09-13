@@ -17,8 +17,8 @@
             <div id="mainarea">
                 <%@include file ="../WEB-INF/jspf/menuAdmin.jspf" %>
                 <div id="contentarea">
-                    Esto es una prueba para ver que sucede
-                    <br>
+                    <h3>Reporte del listado de Buses</h3>
+                    <br><hr/>
                         <%
                             try {
                                 com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
@@ -27,12 +27,12 @@
                                 java.lang.String parameter = "";
                                 // TODO process result here
                                 java.lang.String result = port.grafListaBuses(parameter);
-                                out.println("<img src=\""+result +"\" alt \"reporte\" width=\"600\" />");
+                                out.println("<img src=\""+result +"\" alt=\"reporte\" width=\"600\" />");
                             } catch (Exception ex) {
                                 // TODO handle custom exceptions here
                                 out.println("No Image");
                             }
-                        %>
+                            %><hr/>
                 </div>
             </div>
                 <%@include file="../WEB-INF/jspf/Footer.jspf" %>

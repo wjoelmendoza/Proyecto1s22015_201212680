@@ -26,6 +26,7 @@ public class ArbolAdmo {
     
     public void eliminar(String correo){
         Administrador aux = new Administrador(correo , "");
+        System.out.println(correo);
         admos.eliminar(aux);
     }
     

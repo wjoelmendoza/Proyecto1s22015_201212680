@@ -13,35 +13,54 @@ import com.estructura.interfaces.Comparar;
  */
 public class PruebaPaquete {
     public static void main(String[] arg ){
-        ListaBuses a1 = new ListaBuses();
-//        ArbolAVL avl = new ArbolAVL();
-//        avl.insertar(new Numero(40));
-//        avl.insertar(new Numero(4));
-//        avl.insertar(new Numero(3));
-//        avl.insertar(new Numero(60));
-//        avl.insertar(new Numero(30));
-//        avl.insertar(new Numero(2));
-//        avl.insertar(new Numero(1));
-//        avl.insertar(new Numero(61));
-//        avl.insertar(new Numero(63));
-//        avl.insertar(new Numero(64));
-//        avl.insertar(new Numero(62));
-//        avl.insertar(new Numero(65));
-       // avl.inorden(avl.getRaiz());
-       // System.out.println();
-        
-        //avl.eliminar(new Numero(60));
-        //avl.inorden(avl.getRaiz());
-       // System.out.println();
-        
-        //avl.graficarArbol();
-        a1.insertar(new Bus("20"));
-        a1.insertar(new Bus("25"));
-        a1.insertar(new Bus("2"));
-        a1.insertar(new Bus("0"));
-        a1.insertar(new Bus("1"));
-        a1.bubbleSort();
-        a1.graficar();
+//        ArbolAdmo aa =new ArbolAdmo();
+//        aa.agregar(new Administrador("wjoelmendoza@hotmail.com","123456"));
+//        aa.agregar(new Administrador("lines@hotmail.com","123456"));
+//        aa.graficar();
+//        aa.eliminar("wjoelmendoza@hotmail.com");
+//        aa.graficar();
+        ArbolAVL avl = new ArbolAVL();
+        avl.insertar(new Numero(1));
+        avl.insertar(new Numero(2));
+        avl.insertar(new Numero(3));
+        avl.insertar(new Numero(4));
+        avl.insertar(new Numero(5));
+        avl.insertar(new Numero(6));
+        avl.insertar(new Numero(7));
+        //avl.insertar(null);
+        avl.graficarArbol("avlpuro");
+        avl.eliminar(new Numero(7));
+        avl.graficarArbol("avlpuro");
+        avl.eliminar(new Numero(5));
+        avl.graficarArbol("avlpuro");
+        avl.eliminar(new Numero(6));
+        avl.graficarArbol("avlpuro");
+        avl.insertar(new Numero(5));
+        avl.graficarArbol("avlpuro");
+        avl.insertar(new Numero(6));
+        avl.insertar(new Numero(7));
+        avl.insertar(new Numero(8));
+        avl.insertar(new Numero(9));
+        avl.insertar(new Numero(10));
+        avl.insertar(new Numero(11));
+        avl.insertar(new Numero(12));
+        avl.insertar(new Numero(13));
+        avl.insertar(new Numero(14));
+        avl.insertar(new Numero(15));
+        avl.insertar(new Numero(16));
+        avl.insertar(new Numero(17));
+        avl.insertar(new Numero(18));
+        avl.insertar(new Numero(19));
+        avl.insertar(new Numero(20));
+        avl.insertar(new Numero(21));
+        avl.insertar(new Numero(22));
+        avl.insertar(new Numero(23));
+        avl.insertar(new Numero(16));
+        avl.insertar(new Numero(16));
+        avl.insertar(new Numero(16));
+        avl.insertar(new Numero(16));
+        avl.insertar(new Numero(16));
+        avl.graficarArbol("avlpuro");
     }
 }
 

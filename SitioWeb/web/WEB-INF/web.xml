@@ -8,6 +8,10 @@
         <servlet-name>UploadServlet</servlet-name>
         <servlet-class>com.logica.UploadServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarChofer</servlet-name>
+        <servlet-class>com.logica.EliminarChofer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servicio</servlet-name>
         <url-pattern>/servicio</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>UploadServlet</servlet-name>
         <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarChofer</servlet-name>
+        <url-pattern>/EliminarChofer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

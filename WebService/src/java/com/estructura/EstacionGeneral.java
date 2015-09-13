@@ -91,4 +91,9 @@ public class EstacionGeneral implements Comparar {
         EstacionGeneral aux = (EstacionGeneral) dato;
         return this.id == aux.id;
     }
+    
+    @Override
+    public String toString(){
+        return ""+id+"\n" + nombre;
+    }
 }

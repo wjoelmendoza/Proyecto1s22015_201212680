@@ -196,7 +196,7 @@ public class ArbolAVL {
     private NodoA borrarAVL(NodoA raiz, Comparar clave, Logical flag){
         
         if(raiz == null)
-            System.out.println("No existe la vlave");
+            System.out.println("No existe la llave");
         else if (clave.menorQue(raiz.getValor())){
             NodoA iz = borrarAVL(raiz.getNIzq(), clave, flag);
             raiz.setNIzq(iz);
@@ -222,6 +222,7 @@ public class ArbolAVL {
                 if (flag.getLogical())
                     raiz = equilibrar1(raiz,flag);
             }
+            q=null;
         }
         
         return raiz;
@@ -247,6 +248,7 @@ public class ArbolAVL {
                     n = rotacionDD(n,n1);
                 }else
                     n = rotacionDI(n,n1);
+                break;
         }
         
         return n;
@@ -264,11 +266,14 @@ public class ArbolAVL {
                      n = rotacionII(n,n1);
                 }else
                     n = rotacionID(n,n1);
+                break;
             case 0:
                 n.setFactor(-1);
                 flag.setLogical(false);
+                break;
             case 1:
                 n.setFactor(0);
+                break;
         }
         
         return n;
@@ -357,7 +362,7 @@ public class ArbolAVL {
         gv.addln("graph {");
         auxGraph(gv, raiz);
         gv.addln( gv.end_graph() );
-        File ext = new File(Constantes.dirL +nombreGra);
+        File ext = new File(Constantes.dirL+ nombreGra);
         gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), "png"), ext);
     }
     

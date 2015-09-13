@@ -5,8 +5,6 @@
  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="WSEDD" targetNamespace="http://webservice.com/" xmlns:tns="http://webservice.com/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sc="http://schemas.sun.com/2006/03/wss/server" xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" 
  >
-    <message name="hello"/>
-    <message name="helloResponse"/>
     <message name="agregarAdministrador"/>
     <message name="agregarAdministradorResponse"/>
     <message name="addBus"/>
@@ -27,11 +25,19 @@
     <message name="graficarAVLEGResponse"/>
     <message name="graficarAVLEC"/>
     <message name="graficarAVLECResponse"/>
+    <message name="eliminarAdmo"/>
+    <message name="eliminarAdmoResponse"/>
+    <message name="eliminarChofer"/>
+    <message name="eliminarChoferResponse"/>
+    <message name="eliminarEstacioG"/>
+    <message name="eliminarEstacioGResponse"/>
+    <message name="eliminarEstacionC"/>
+    <message name="eliminarEstacionCResponse"/>
+    <message name="eliminarBus"/>
+    <message name="eliminarBusResponse"/>
+    <message name="ordenarBuses"/>
+    <message name="ordenarBusesResponse"/>
     <portType name="WSEDD">
-        <operation name="hello">
-            <input message="tns:hello"/>
-            <output message="tns:helloResponse"/>
-        </operation>
         <operation name="agregarAdministrador">
             <input message="tns:agregarAdministrador"/>
             <output message="tns:agregarAdministradorResponse"/>
@@ -72,12 +78,32 @@
             <input message="tns:graficarAVLEC"/>
             <output message="tns:graficarAVLECResponse"/>
         </operation>
+        <operation name="eliminarAdmo">
+            <input message="tns:eliminarAdmo"/>
+            <output message="tns:eliminarAdmoResponse"/>
+        </operation>
+        <operation name="eliminarChofer">
+            <input message="tns:eliminarChofer"/>
+            <output message="tns:eliminarChoferResponse"/>
+        </operation>
+        <operation name="eliminarEstacioG">
+            <input message="tns:eliminarEstacioG"/>
+            <output message="tns:eliminarEstacioGResponse"/>
+        </operation>
+        <operation name="eliminarEstacionC">
+            <input message="tns:eliminarEstacionC"/>
+            <output message="tns:eliminarEstacionCResponse"/>
+        </operation>
+        <operation name="eliminarBus">
+            <input message="tns:eliminarBus"/>
+            <output message="tns:eliminarBusResponse"/>
+        </operation>
+        <operation name="ordenarBuses">
+            <input message="tns:ordenarBuses"/>
+            <output message="tns:ordenarBusesResponse"/>
+        </operation>
     </portType>
     <binding name="WSEDDPortBinding" type="tns:WSEDD">
-        <operation name="hello">
-            <input></input>
-            <output></output>
-        </operation>
         <operation name="agregarAdministrador">
             <input></input>
             <output></output>
@@ -118,6 +144,30 @@
             <input/>
             <output/>
         </operation>
+        <operation name="eliminarAdmo">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="eliminarChofer">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="eliminarEstacioG">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="eliminarEstacionC">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="eliminarBus">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="ordenarBuses">
+            <input/>
+            <output/>
+        </operation>
     </binding>
     <service name="WSEDD">
         <port name="WSEDDPort" binding="tns:WSEDDPortBinding"/>
@@ -135,6 +185,54 @@
         </wsp:ExactlyOne>
     </wsp:Policy>
     <wsp:Policy wsu:Id="WSEDDPortBinding_addBus_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_hello_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_hello_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_eliminaChofer_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_eliminaChofer_Output_Policy">
         <wsp:ExactlyOne>
             <wsp:All>
                 <sp:EncryptedParts>

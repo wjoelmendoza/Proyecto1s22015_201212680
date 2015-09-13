@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author walter
  */
-@WebServlet(name = "AddEG", urlPatterns = {"/Admin/AddEG"})
+@WebServlet(name = "AddEG", urlPatterns = {"/AddEG"})
 public class AddEG extends HttpServlet {
 
     /**
@@ -62,6 +62,14 @@ public class AddEG extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        int clave= Integer.parseInt(request.getParameter("idEG"));
+        String nombre = request.getParameter("nombreEG");
+        String pass = request.getParameter("contraEG");
+        String rPass = request.getParameter("confEG");
+        
+        if(rPass.equals(pass)){
+            this.addEstacionG(clave, pass, nombre);
+        }
     }
 
     /**

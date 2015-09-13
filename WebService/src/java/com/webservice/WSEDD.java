@@ -31,15 +31,6 @@ public class WSEDD {
     ArbolChofer arbolChofer = new ArbolChofer();
     ArbolEstacionC estacionesC = new ArbolEstacionC();
     ArbolEstacionG estacionesG = new ArbolEstacionG();
-    /**
-     * This is a sample web service operation
-     * @param txt
-     * @return 
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
 
     /**
      * Web service operation
@@ -116,6 +107,7 @@ public class WSEDD {
 
     /**
      * Web service operation
+     * @return 
      */
     @WebMethod(operationName = "graficarAVLChoferes")
     public String graficarAVLChoferes() {
@@ -125,6 +117,7 @@ public class WSEDD {
 
     /**
      * Web service operation
+     * @return 
      */
     @WebMethod(operationName = "graficarAVLAdmo")
     public String graficarAVLAdmo() {
@@ -134,6 +127,7 @@ public class WSEDD {
 
     /**
      * Web service operation
+     * @return 
      */
     @WebMethod(operationName = "graficarAVLEG")
     public String graficarAVLEG() {
@@ -143,6 +137,7 @@ public class WSEDD {
 
     /**
      * Web service operation
+     * @return 
      */
     @WebMethod(operationName = "graficarAVLEC")
     public String graficarAVLEC() {
@@ -150,6 +145,63 @@ public class WSEDD {
         return estacionesC.graficar();
     }
     
-    
 
+    /**
+     * Web service operation
+     * @param correo
+     */
+    @WebMethod(operationName = "eliminarAdmo")
+    @Oneway
+    public void eliminarAdmo(@WebParam(name = "correo") String correo) {
+        arbolAdmo.eliminar(correo);
+    }
+
+    /**
+     * Web service operation
+     * @param clave
+     */
+    @WebMethod(operationName = "eliminarChofer")
+    @Oneway
+    public void eliminarChofer(@WebParam(name = "clave") int clave) {
+        arbolChofer.eliminar(clave);
+    }
+
+    /**
+     * Web service operation
+     * @param clave
+     */
+    @WebMethod(operationName = "eliminarEstacioG")
+    @Oneway
+    public void eliminarEstacioG(@WebParam(name = "clave") int clave) {
+        estacionesG.eliminar(clave);
+    }
+
+    /**
+     * Web service operation
+     * @param id
+     */
+    @WebMethod(operationName = "eliminarEstacionC")
+    @Oneway
+    public void eliminarEstacionC(@WebParam(name = "id") int id) {
+        estacionesC.eliminar(id);
+    }
+
+    /**
+     * Web service operation
+     * @param idBus
+     */
+    @WebMethod(operationName = "eliminarBus")
+    @Oneway
+    public void eliminarBus(@WebParam(name = "idBus") String idBus) {
+        
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ordenarBuses")
+    @Oneway
+    public void ordenarBuses() {
+        buses.bubbleSort();
+    }
 }

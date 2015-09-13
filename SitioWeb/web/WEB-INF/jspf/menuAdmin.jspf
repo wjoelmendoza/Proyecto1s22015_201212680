@@ -7,6 +7,11 @@
                 <a href="AddChofer.jsp">Agregar Chofer</a>
                 <a href="AddEC.jsp">Agregar Estación Clave</a>
                 <a href="AddEG.jsp">Agregar Estación General</a>
-                <a href="ReporteBuses.jsp">Ver Buses</a>
+                <a href="Eliminar.jsp">Eliminar Usuarios</a>
+                <a href="ReporteAdmin.jsp">Reporte Admin</a>
+                <a href="ReporteBuses.jsp">Reporte Buses</a>
+                <a href="ReporteChoferes.jsp">Reporte Choferes</a>
+                <a href="ReporteEC.jsp">Reporte Estación C</a>
+                <a href="ReporteEG.jsp">Reporte Estación G</a>
                 </div>
 </div>

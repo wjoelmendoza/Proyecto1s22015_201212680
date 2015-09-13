@@ -48,4 +48,16 @@ public class ArbolChofer {
         choferes.graficarArbol("arbolAdmo");
         return choferes.getImage();
     }
+    
+    public String reporteCBH(int clave, String idBus){
+        Comparar aux1 = new Chofer(clave);
+        aux1 = choferes.buscar(aux1);
+        Chofer aux;
+        if(aux1!=null){
+            aux = (Chofer)aux1;
+            //aux
+        }
+        
+        return "";
+    }
 }

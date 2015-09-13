@@ -4,12 +4,6 @@
 <xsd:import namespace="http://webservice.com/" schemaLocation="http://webservice:8080/WebService/WSEDD?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
-</message>
 <message name="agregarAdministrador">
 <part name="parameters" element="tns:agregarAdministrador"/>
 </message>
@@ -31,11 +25,49 @@
 <message name="grafListaBusesResponse">
 <part name="parameters" element="tns:grafListaBusesResponse"/>
 </message>
+<message name="graficarAVLChoferes">
+<part name="parameters" element="tns:graficarAVLChoferes"/>
+</message>
+<message name="graficarAVLChoferesResponse">
+<part name="parameters" element="tns:graficarAVLChoferesResponse"/>
+</message>
+<message name="graficarAVLAdmo">
+<part name="parameters" element="tns:graficarAVLAdmo"/>
+</message>
+<message name="graficarAVLAdmoResponse">
+<part name="parameters" element="tns:graficarAVLAdmoResponse"/>
+</message>
+<message name="graficarAVLEG">
+<part name="parameters" element="tns:graficarAVLEG"/>
+</message>
+<message name="graficarAVLEGResponse">
+<part name="parameters" element="tns:graficarAVLEGResponse"/>
+</message>
+<message name="graficarAVLEC">
+<part name="parameters" element="tns:graficarAVLEC"/>
+</message>
+<message name="graficarAVLECResponse">
+<part name="parameters" element="tns:graficarAVLECResponse"/>
+</message>
+<message name="eliminarAdmo">
+<part name="parameters" element="tns:eliminarAdmo"/>
+</message>
+<message name="eliminarChofer">
+<part name="parameters" element="tns:eliminarChofer"/>
+</message>
+<message name="eliminarEstacioG">
+<part name="parameters" element="tns:eliminarEstacioG"/>
+</message>
+<message name="eliminarEstacionC">
+<part name="parameters" element="tns:eliminarEstacionC"/>
+</message>
+<message name="eliminarBus">
+<part name="parameters" element="tns:eliminarBus"/>
+</message>
+<message name="ordenarBuses">
+<part name="parameters" element="tns:ordenarBuses"/>
+</message>
 <portType name="WSEDD">
-<operation name="hello">
-<input wsam:Action="http://webservice.com/WSEDD/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://webservice.com/WSEDD/helloResponse" message="tns:helloResponse"/>
-</operation>
 <operation name="agregarAdministrador">
 <input wsam:Action="http://webservice.com/WSEDD/agregarAdministrador" message="tns:agregarAdministrador"/>
 </operation>
@@ -55,18 +87,43 @@
 <input wsam:Action="http://webservice.com/WSEDD/grafListaBusesRequest" message="tns:grafListaBuses"/>
 <output wsam:Action="http://webservice.com/WSEDD/grafListaBusesResponse" message="tns:grafListaBusesResponse"/>
 </operation>
+<operation name="graficarAVLChoferes">
+<input wsam:Action="http://webservice.com/WSEDD/graficarAVLChoferesRequest" message="tns:graficarAVLChoferes"/>
+<output wsam:Action="http://webservice.com/WSEDD/graficarAVLChoferesResponse" message="tns:graficarAVLChoferesResponse"/>
+</operation>
+<operation name="graficarAVLAdmo">
+<input wsam:Action="http://webservice.com/WSEDD/graficarAVLAdmoRequest" message="tns:graficarAVLAdmo"/>
+<output wsam:Action="http://webservice.com/WSEDD/graficarAVLAdmoResponse" message="tns:graficarAVLAdmoResponse"/>
+</operation>
+<operation name="graficarAVLEG">
+<input wsam:Action="http://webservice.com/WSEDD/graficarAVLEGRequest" message="tns:graficarAVLEG"/>
+<output wsam:Action="http://webservice.com/WSEDD/graficarAVLEGResponse" message="tns:graficarAVLEGResponse"/>
+</operation>
+<operation name="graficarAVLEC">
+<input wsam:Action="http://webservice.com/WSEDD/graficarAVLECRequest" message="tns:graficarAVLEC"/>
+<output wsam:Action="http://webservice.com/WSEDD/graficarAVLECResponse" message="tns:graficarAVLECResponse"/>
+</operation>
+<operation name="eliminarAdmo">
+<input wsam:Action="http://webservice.com/WSEDD/eliminarAdmo" message="tns:eliminarAdmo"/>
+</operation>
+<operation name="eliminarChofer">
+<input wsam:Action="http://webservice.com/WSEDD/eliminarChofer" message="tns:eliminarChofer"/>
+</operation>
+<operation name="eliminarEstacioG">
+<input wsam:Action="http://webservice.com/WSEDD/eliminarEstacioG" message="tns:eliminarEstacioG"/>
+</operation>
+<operation name="eliminarEstacionC">
+<input wsam:Action="http://webservice.com/WSEDD/eliminarEstacionC" message="tns:eliminarEstacionC"/>
+</operation>
+<operation name="eliminarBus">
+<input wsam:Action="http://webservice.com/WSEDD/eliminarBus" message="tns:eliminarBus"/>
+</operation>
+<operation name="ordenarBuses">
+<input wsam:Action="http://webservice.com/WSEDD/ordenarBuses" message="tns:ordenarBuses"/>
+</operation>
 </portType>
 <binding name="WSEDDPortBinding" type="tns:WSEDD">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="hello">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="agregarAdministrador">
 <soap:operation soapAction=""/>
 <input>
@@ -105,6 +162,78 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="graficarAVLChoferes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graficarAVLAdmo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graficarAVLEG">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graficarAVLEC">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarAdmo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="eliminarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="eliminarEstacioG">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="eliminarEstacionC">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="eliminarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="ordenarBuses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
 </operation>
 </binding>
 <service name="WSEDD">

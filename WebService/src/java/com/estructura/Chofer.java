@@ -30,6 +30,7 @@ public class Chofer implements Comparar {
         nombre ="chofer";
         correo = "chofer@chofer.com";
         this.clave = clave;
+        fechas = new ListaFecha();
     }
     
     public Chofer(int clave, String apellido, String contrasenha, String correo, String nombre){
@@ -38,6 +39,7 @@ public class Chofer implements Comparar {
         this.contrasenha = contrasenha;
         this.correo = correo;
         this.nombre = nombre;
+        fechas = new ListaFecha();
     }
 
     public String getApellido(){
@@ -93,4 +95,14 @@ public class Chofer implements Comparar {
     public void setClave(int clave){
         this.clave = clave;
     }
+    
+    @Override
+    public String toString(){
+        return clave +"\n" + nombre;
+    }
+    
+    private void iniciaF(){
+        fechas.insertar();
+    }
+    
 }

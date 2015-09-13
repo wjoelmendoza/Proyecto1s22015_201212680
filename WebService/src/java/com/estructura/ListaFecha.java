@@ -23,5 +23,7 @@ public class ListaFecha {
         return fecha.getSize();
     }
     
-    public void insertar(){}
+    public void insertar(){
+        fecha.insertar(null);
+    }
 }

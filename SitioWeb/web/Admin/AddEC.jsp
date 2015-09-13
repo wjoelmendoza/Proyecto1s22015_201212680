@@ -38,19 +38,19 @@
                         <tbody>
                             <tr>
                                 <td>Ingrese el ID:</td>
-                                <td><input name="idEC" type="number" required="true" min="0" width="200px"/></td>
+                                <td><input name="idEC" type="number" required min="0" /></td>
                             </tr>
                             <tr>
                                 <td>Ingrese el Nombre:</td>
-                                <td><input name="nombreEC" required="true" type="text" width="200px"  placeholder="Centro Historico" /> </td>
+                                <td><input name="nombreEC" required type="text" placeholder="Centro Historico" /> </td>
                             </tr>
                             <tr>
                                 <td>Ingrese contraseña:</td>
-                                <td><input name="contraEC" required="true" type="password" width="200px" placeholder="123456"/></td>
+                                <td><input name="contraEC" required type="password" placeholder="123456"/></td>
                             </tr>
                             <tr>
                                 <td>Confirme contraseña:</td>
-                                <td><input name="confEC" required="true" type="password" placeHolder="123456"/></td>
+                                <td><input name="confEC" required type="password" placeHolder="123456"/></td>
                             </tr>
                             <tr>
                                 <td></td>   
