@@ -37,6 +37,18 @@
     <message name="eliminarBusResponse"/>
     <message name="ordenarBuses"/>
     <message name="ordenarBusesResponse"/>
+    <message name="modificarChofer"/>
+    <message name="modificarChoferResponse"/>
+    <message name="asignacionBuses"/>
+    <message name="asignacionBusesResponse"/>
+    <message name="logAdmin"/>
+    <message name="logAdminResponse"/>
+    <message name="logChofer"/>
+    <message name="logChoferResponse"/>
+    <message name="logEG"/>
+    <message name="logEGResponse"/>
+    <message name="logEC"/>
+    <message name="logECResponse"/>
     <portType name="WSEDD">
         <operation name="agregarAdministrador">
             <input message="tns:agregarAdministrador"/>
@@ -102,6 +114,30 @@
             <input message="tns:ordenarBuses"/>
             <output message="tns:ordenarBusesResponse"/>
         </operation>
+        <operation name="modificarChofer">
+            <input message="tns:modificarChofer"/>
+            <output message="tns:modificarChoferResponse"/>
+        </operation>
+        <operation name="asignacionBuses">
+            <input message="tns:asignacionBuses"/>
+            <output message="tns:asignacionBusesResponse"/>
+        </operation>
+        <operation name="logAdmin">
+            <input message="tns:logAdmin"/>
+            <output message="tns:logAdminResponse"/>
+        </operation>
+        <operation name="logChofer">
+            <input message="tns:logChofer"/>
+            <output message="tns:logChoferResponse"/>
+        </operation>
+        <operation name="logEG">
+            <input message="tns:logEG"/>
+            <output message="tns:logEGResponse"/>
+        </operation>
+        <operation name="logEC">
+            <input message="tns:logEC"/>
+            <output message="tns:logECResponse"/>
+        </operation>
     </portType>
     <binding name="WSEDDPortBinding" type="tns:WSEDD">
         <operation name="agregarAdministrador">
@@ -165,6 +201,30 @@
             <output/>
         </operation>
         <operation name="ordenarBuses">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="modificarChofer">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="asignacionBuses">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="logAdmin">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="logChofer">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="logEG">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="logEC">
             <input/>
             <output/>
         </operation>
@@ -233,6 +293,58 @@
         </wsp:ExactlyOne>
     </wsp:Policy>
     <wsp:Policy wsu:Id="WSEDDPortBinding_eliminaChofer_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_loginEG_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_loginEG_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_loginEC_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_loginEC_Output_Policy">
         <wsp:ExactlyOne>
             <wsp:All>
                 <sp:EncryptedParts>

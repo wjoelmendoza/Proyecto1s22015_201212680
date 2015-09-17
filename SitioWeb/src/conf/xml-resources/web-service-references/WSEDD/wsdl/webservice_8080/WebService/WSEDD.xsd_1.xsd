@@ -10,6 +10,8 @@
 
 <xs:element name="agregarAdministrador" type="tns:agregarAdministrador"/>
 
+<xs:element name="asignacionBuses" type="tns:asignacionBuses"/>
+
 <xs:element name="eliminarAdmo" type="tns:eliminarAdmo"/>
 
 <xs:element name="eliminarBus" type="tns:eliminarBus"/>
@@ -40,6 +42,26 @@
 
 <xs:element name="graficarAVLEGResponse" type="tns:graficarAVLEGResponse"/>
 
+<xs:element name="logAdmin" type="tns:logAdmin"/>
+
+<xs:element name="logAdminResponse" type="tns:logAdminResponse"/>
+
+<xs:element name="logChofer" type="tns:logChofer"/>
+
+<xs:element name="logChoferResponse" type="tns:logChoferResponse"/>
+
+<xs:element name="logEC" type="tns:logEC"/>
+
+<xs:element name="logECResponse" type="tns:logECResponse"/>
+
+<xs:element name="logEG" type="tns:logEG"/>
+
+<xs:element name="logEGResponse" type="tns:logEGResponse"/>
+
+<xs:element name="modificarChofer" type="tns:modificarChofer"/>
+
+<xs:element name="modificarChoferResponse" type="tns:modificarChoferResponse"/>
+
 <xs:element name="ordenarBuses" type="tns:ordenarBuses"/>
 
 <xs:complexType name="grafListaBuses">
@@ -54,6 +76,33 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="logEC">
+<xs:sequence>
+<xs:element name="lidEG" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logECResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:estacionClave" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="estacionClave">
+<xs:complexContent>
+<xs:extension base="tns:estacionGeneral">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="estacionGeneral">
+<xs:sequence>
+<xs:element name="contrasenha" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="graficarAVLAdmo">
 <xs:sequence/>
 </xs:complexType>
@@ -64,9 +113,42 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="logEG">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logEGResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:estacionGeneral" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="eliminarEstacionC">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarChofer">
+<xs:sequence>
+<xs:element name="clave" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:chofer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="chofer">
+<xs:sequence>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasenha" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -97,6 +179,12 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="asignacionBuses">
+<xs:sequence>
+<xs:element name="lnCSV" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="addBus">
 <xs:sequence>
 <xs:element name="idBus" type="xs:string" minOccurs="0"/>
@@ -117,6 +205,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="logChofer">
+<xs:sequence>
+<xs:element name="lclaveChofer" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:chofer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="graficarAVLChoferes">
 <xs:sequence/>
 </xs:complexType>
@@ -124,6 +224,25 @@
 <xs:complexType name="graficarAVLChoferesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logAdmin">
+<xs:sequence>
+<xs:element name="lcorreoAdmin" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:administrador" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="administrador">
+<xs:sequence>
+<xs:element name="contrasenha" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

@@ -18,7 +18,17 @@
                 <%@include file ="../WEB-INF/jspf/menuAdmin.jspf" %>
                 <div id="contentarea">
                     <h3>Reporte del listado de Buses</h3>
+                    <form method="post" action="/SitioWeb/OrdenBuses">
+                        <table cellpadding="5">
+                            <tr>
+                                <td>Para ordenar los datos<br>pulse el botón:</td>
+                                <td><input type="submit" value="Ordenar" ></td>
+                            </tr>
+                        </table>
+                    </form>
+                    
                     <br><hr/>
+                    
                         <%
                             try {
                                 com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();

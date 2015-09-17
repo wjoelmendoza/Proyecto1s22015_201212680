@@ -204,4 +204,88 @@ public class WSEDD {
     public void ordenarBuses() {
         buses.bubbleSort();
     }
+
+    /**
+     * Web service operation
+     * @param clave
+     * @return 
+     */
+    @WebMethod(operationName = "modificarChofer")
+    public Chofer modificarChofer(@WebParam(name = "clave") int clave) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     * @param lnCSV
+     */
+    @WebMethod(operationName = "asignacionBuses")
+    @Oneway
+    public void asignacionBuses(@WebParam(name = "lnCSV") String lnCSV) {
+        //TODO write your implementation code here:
+        String[] vecDatos = lnCSV.split(",");
+        if(vecDatos.length == 6){
+            String idBus = vecDatos[0];
+            String ruta = vecDatos[1];
+            int claveChofer = Integer.parseInt(vecDatos[2]);
+            String horai = vecDatos[3];
+            String horaf = vecDatos[4];
+            String fecha = vecDatos[5];
+            Bus auxB = buses.buscar(idBus);
+            Chofer auxC = arbolChofer.buscar(claveChofer);
+            
+            if(auxB == null)
+                buses.insertar(new Bus(idBus));
+            
+            if(auxC == null)
+                arbolChofer.agregar(new Chofer(claveChofer));
+        }
+    }
+
+    /**
+     * Web service operation
+     * @param lcorreoAdmin
+     * @return 
+     */
+    @WebMethod(operationName = "logAdmin")
+    public Administrador logAdmin(@WebParam(name = "lcorreoAdmin") String lcorreoAdmin) {
+        //TODO write your implementation code here:
+        return arbolAdmo.buscar(lcorreoAdmin);
+    }
+
+    /**
+     * Web service operation
+     * @param lclaveChofer
+     * @return 
+     */
+    @WebMethod(operationName = "logChofer")
+    public Chofer logChofer(@WebParam(name = "lclaveChofer") int lclaveChofer) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     * @param id
+     * @return 
+     */
+    @WebMethod(operationName = "logEG")
+    public EstacionGeneral logEG(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return estacionesG.buscar(id);
+    }
+
+    /**
+     * Web service operation
+     * @param lidEG
+     * @return 
+     */
+    @WebMethod(operationName = "logEC")
+    public EstacionClave logEC(@WebParam(name = "lidEG") int lidEG) {
+        //TODO write your implementation code here:
+        return estacionesC.buscar(lidEG);
+    }
+    
+
 }

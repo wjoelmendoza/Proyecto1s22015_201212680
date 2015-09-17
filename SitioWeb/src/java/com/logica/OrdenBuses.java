@@ -1,14 +1,11 @@
-package com.logica;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.logica;
 
-import com.webservice.Administrador;
 import java.io.IOException;
-//import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author walter
  */
-@WebServlet(urlPatterns = {"/LogAdmin"})
-public class LogAdmin extends HttpServlet {
-    private boolean log;
+@WebServlet(name = "OrdenBuses", urlPatterns = {"/OrdenBuses"})
+public class OrdenBuses extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,17 +30,7 @@ public class LogAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-//        String nameAdmin = request.getParameter("txtMail");
-//        String passAdmin = request.getParameter("txtPass");
-//        if(nameAdmin.isEmpty() && passAdmin.isEmpty()){
-//            System.out.println("vacios");
-//        }
-        
-        
-      //  response.sendRedirect("/SitioWeb/Admin/.jsp");
-        
-       // System.out.println("processRequest");
+        response.sendRedirect("/SitioWeb/Admin/ReporteBuses.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -58,8 +45,7 @@ public class LogAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //processRequest(request, response);
+        processRequest(request, response);
         
     }
 
@@ -74,18 +60,9 @@ public class LogAdmin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-//        response.encodeRedirectURL("Admin.jsp");
-//        System.out.println("doPost");
-        String correo = request.getParameter("txtMail");
-        String password = request.getParameter("txtPass");
-        if(login(correo,password)){
-            log = true;
-            response.sendRedirect("/SitioWeb/Admin/AddBus.jsp");
-        }else{
-            log = false;
-            response.sendRedirect("/SitioWeb/Home.jsp");
-        }
+        this.ordenarBuses();
+        processRequest(request, response);
+        
     }
 
     /**
@@ -97,31 +74,11 @@ public class LogAdmin extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-//no es aplicable este metodo
-//    private static void agregarAdministrador(java.lang.String correoAdmo, java.lang.String passAdmo) {
-//        com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
-//        com.webservice.WSEDD port = service.getWSEDDPort();
-//        port.agregarAdministrador(correoAdmo, passAdmo);
-//    }
-//    
 
-    private Administrador logAdmin(java.lang.String lcorreoAdmin) {
+    private void ordenarBuses() {
         com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
         com.webservice.WSEDD port = service.getWSEDDPort();
-        return port.logAdmin(lcorreoAdmin);
+        port.ordenarBuses();
     }
 
-    private boolean login(String correo, String password){
-        boolean aux = false;
-        Administrador auxA = this.logAdmin(correo);
-        System.out.println(auxA);
-        if(auxA!=null){
-            if(password.equals(auxA.getContrasenha()))
-                aux = true;
-        }
-        
-        return aux;
-    }
-    
 }

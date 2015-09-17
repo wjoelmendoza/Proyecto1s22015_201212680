@@ -30,8 +30,8 @@
                 <br>
                 <br>
                 <br>
-            <h3>Ingrese los datos Correspondientes para crear un administrador:</h3>
-            <form method="post" action="/SitioWeb/AddAdmin">
+            <h3>Ingrese los datos Correspondientes para ingresar como un administrador:</h3>
+            <form method="post" action="/SitioWeb/LogAdmin">
                 <table>
                     <tr>
                         <td>Correo:</td>

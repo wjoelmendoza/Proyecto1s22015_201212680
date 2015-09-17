@@ -67,6 +67,39 @@
 <message name="ordenarBuses">
 <part name="parameters" element="tns:ordenarBuses"/>
 </message>
+<message name="modificarChofer">
+<part name="parameters" element="tns:modificarChofer"/>
+</message>
+<message name="modificarChoferResponse">
+<part name="parameters" element="tns:modificarChoferResponse"/>
+</message>
+<message name="asignacionBuses">
+<part name="parameters" element="tns:asignacionBuses"/>
+</message>
+<message name="logAdmin">
+<part name="parameters" element="tns:logAdmin"/>
+</message>
+<message name="logAdminResponse">
+<part name="parameters" element="tns:logAdminResponse"/>
+</message>
+<message name="logChofer">
+<part name="parameters" element="tns:logChofer"/>
+</message>
+<message name="logChoferResponse">
+<part name="parameters" element="tns:logChoferResponse"/>
+</message>
+<message name="logEG">
+<part name="parameters" element="tns:logEG"/>
+</message>
+<message name="logEGResponse">
+<part name="parameters" element="tns:logEGResponse"/>
+</message>
+<message name="logEC">
+<part name="parameters" element="tns:logEC"/>
+</message>
+<message name="logECResponse">
+<part name="parameters" element="tns:logECResponse"/>
+</message>
 <portType name="WSEDD">
 <operation name="agregarAdministrador">
 <input wsam:Action="http://webservice.com/WSEDD/agregarAdministrador" message="tns:agregarAdministrador"/>
@@ -120,6 +153,29 @@
 </operation>
 <operation name="ordenarBuses">
 <input wsam:Action="http://webservice.com/WSEDD/ordenarBuses" message="tns:ordenarBuses"/>
+</operation>
+<operation name="modificarChofer">
+<input wsam:Action="http://webservice.com/WSEDD/modificarChoferRequest" message="tns:modificarChofer"/>
+<output wsam:Action="http://webservice.com/WSEDD/modificarChoferResponse" message="tns:modificarChoferResponse"/>
+</operation>
+<operation name="asignacionBuses">
+<input wsam:Action="http://webservice.com/WSEDD/asignacionBuses" message="tns:asignacionBuses"/>
+</operation>
+<operation name="logAdmin">
+<input wsam:Action="http://webservice.com/WSEDD/logAdminRequest" message="tns:logAdmin"/>
+<output wsam:Action="http://webservice.com/WSEDD/logAdminResponse" message="tns:logAdminResponse"/>
+</operation>
+<operation name="logChofer">
+<input wsam:Action="http://webservice.com/WSEDD/logChoferRequest" message="tns:logChofer"/>
+<output wsam:Action="http://webservice.com/WSEDD/logChoferResponse" message="tns:logChoferResponse"/>
+</operation>
+<operation name="logEG">
+<input wsam:Action="http://webservice.com/WSEDD/logEGRequest" message="tns:logEG"/>
+<output wsam:Action="http://webservice.com/WSEDD/logEGResponse" message="tns:logEGResponse"/>
+</operation>
+<operation name="logEC">
+<input wsam:Action="http://webservice.com/WSEDD/logECRequest" message="tns:logEC"/>
+<output wsam:Action="http://webservice.com/WSEDD/logECResponse" message="tns:logECResponse"/>
 </operation>
 </portType>
 <binding name="WSEDDPortBinding" type="tns:WSEDD">
@@ -234,6 +290,57 @@
 <input>
 <soap:body use="literal"/>
 </input>
+</operation>
+<operation name="modificarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="asignacionBuses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="logAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="logChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="logEG">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="logEC">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 </binding>
 <service name="WSEDD">

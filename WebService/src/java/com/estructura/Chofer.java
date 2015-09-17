@@ -27,8 +27,9 @@ public class Chofer implements Comparar {
      */
     
     public Chofer(int clave){
-        nombre ="chofer";
+        nombre = "Chofer";
         correo = "chofer@chofer.com";
+        contrasenha = "chofer";
         this.clave = clave;
         fechas = new ListaFecha();
     }

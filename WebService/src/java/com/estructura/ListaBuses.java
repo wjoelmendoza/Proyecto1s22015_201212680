@@ -18,6 +18,7 @@ public class ListaBuses {
     private int size;
     private String nomGraf;
     private GraphViz gv;
+    
     public ListaBuses(){
         origen = fin = null;
         size =0;
@@ -91,6 +92,7 @@ public class ListaBuses {
             }
         }
     }
+    
     public void graficar(){
         if(!vacia()){
             nomGraf="listaBus" + System.currentTimeMillis() +".png";
@@ -128,5 +130,23 @@ public class ListaBuses {
     
     public String getNombreGraf(){
         return Constantes.dirW+ nomGraf;
+    }
+    
+    public Bus buscar(String id){
+        Bus aux, aux2= null;
+        NodoLD<Bus> aux1 = origen;
+        
+        if(!this.vacia()){
+            while(aux1 != null){
+                aux  = aux1.getDato();
+                if(aux.getId().equals(id)){
+                    aux2 = aux;
+                    break;
+                }
+                aux1 = aux1.getSiguiente();
+            }
+        }
+        
+        return aux2;
     }
 }
