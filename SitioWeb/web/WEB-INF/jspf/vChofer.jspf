@@ -1,0 +1,31 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="com.users.Admin"%>
+<%@page pageEncoding="UTF-8" %>
+<%@page import = "com.users.IUser"%>
+<%@page import = "javax.servlet.ServletException" %>
+<%@page import = "javax.servlet.annotation.WebServlet" %>
+<%@page import = "javax.servlet.http.HttpServlet" %>
+<%@page import = "javax.servlet.http.HttpServletRequest" %>
+<%@page import = "javax.servlet.http.HttpServletResponse" %>
+<%@page import = "javax.servlet.http.HttpSession" %>
+<%@page import = "java.io.PrintWriter"%>
+<%@page import = "java.io.IOException" %>
+
+<%! 
+   
+   /**
+    * Este metodo tendria la funcion de validar la sesion
+    */
+    
+    public void validarSesion(HttpSession sesiona, HttpServletResponse response) throws ServletException,IOException{
+        HttpSession ss =  sesiona;
+        IUser u =(IUser) ss.getAttribute("usuario");
+        if(u!=null){
+            if(!u.getTipo().equals("Chofer")){
+                response.sendRedirect("/SitioWeb/");
+            }
+        }else{
+            response.sendRedirect("/SitioWeb/");
+        }
+    }
+%>

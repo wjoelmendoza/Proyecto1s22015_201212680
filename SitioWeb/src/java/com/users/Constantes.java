@@ -13,5 +13,5 @@ public class Constantes {
     public static final String admin ="Admin";
     public static final String chofer ="Chofer";
     public static final String eg ="Estacion General";
-    public static final String ec ="Estcion Clave";
+    public static final String ec ="Estacion Clave";
 }

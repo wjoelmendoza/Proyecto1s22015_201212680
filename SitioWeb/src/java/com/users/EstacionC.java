@@ -12,7 +12,11 @@ package com.users;
 public class EstacionC implements IUser{
     private String tipo;
     private int id ;
-
+    
+    public EstacionC(int id){
+        this.id= id;
+        tipo = Constantes.ec;
+    }
     @Override
     public String getTipo() {
         return tipo;

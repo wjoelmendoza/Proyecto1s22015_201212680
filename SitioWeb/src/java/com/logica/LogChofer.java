@@ -1,29 +1,26 @@
-package com.logica;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.logica;
 
-import com.users.Admin;
-import com.webservice.Administrador;
+import com.webservice.Chofer;
 import java.io.IOException;
-//import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author walter
  */
-@WebServlet(urlPatterns = {"/LogAdmin"})
-public class LogAdmin extends HttpServlet {
-    private boolean log;
+@WebServlet(name = "LogChofer", urlPatterns = {"/LogChofer"})
+public class LogChofer extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,17 +32,7 @@ public class LogAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-//        String nameAdmin = request.getParameter("txtMail");
-//        String passAdmin = request.getParameter("txtPass");
-//        if(nameAdmin.isEmpty() && passAdmin.isEmpty()){
-//            System.out.println("vacios");
-//        }
-        
-        
-      //  response.sendRedirect("/SitioWeb/Admin/.jsp");
-        
-       // System.out.println("processRequest");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,9 +47,7 @@ public class LogAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //processRequest(request, response);
-        
+        processRequest(request, response);
     }
 
     /**
@@ -76,20 +61,14 @@ public class LogAdmin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-//        response.encodeRedirectURL("Admin.jsp");
-//        System.out.println("doPost");
         HttpSession sesion = request.getSession();
-        String correo = request.getParameter("txtMail");
-        String password = request.getParameter("txtPass");
-        if(login(correo,password)){
-            log = true;
-            //tentativamente esto funcione para las demas
-            sesion.setAttribute("usuario", new Admin(correo));
-            response.sendRedirect("/SitioWeb/Admin/AgregarAdministrador.jsp");
+        int clave = Integer.parseInt(request.getParameter("lClaveChofer"));
+        String password = request.getParameter("lpassword");
+        if(this.login(clave, password)){
+            sesion.setAttribute("usuario", new com.users.Chofer(clave));
+            response.sendRedirect("/SitioWeb/Chofer/bienvenido.jsp");
         }else{
-            log = false;
-            response.sendRedirect("/SitioWeb/Home.jsp");
+            response.sendRedirect("/SitioWeb/");
         }
     }
 
@@ -102,31 +81,23 @@ public class LogAdmin extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-//no es aplicable este metodo
-//    private static void agregarAdministrador(java.lang.String correoAdmo, java.lang.String passAdmo) {
-//        com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
-//        com.webservice.WSEDD port = service.getWSEDDPort();
-//        port.agregarAdministrador(correoAdmo, passAdmo);
-//    }
-//    
 
-    private Administrador logAdmin(java.lang.String lcorreoAdmin) {
+    private Chofer logChofer(int lclaveChofer) {
         com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
         com.webservice.WSEDD port = service.getWSEDDPort();
-        return port.logAdmin(lcorreoAdmin);
+        return port.logChofer(lclaveChofer);
     }
 
-    private boolean login(String correo, String password){
+    private boolean login(int clave, String password){
         boolean aux = false;
-        Administrador auxA = this.logAdmin(correo);
-        System.out.println(auxA);
-        if(auxA!=null){
-            if(password.equals(auxA.getContrasenha()))
+        
+        Chofer auxc = this.logChofer(clave);
+        System.out.println(auxc);
+        if(auxc!= null){
+            if(password.equals(auxc.getContrasenha()))
                 aux = true;
         }
         
         return aux;
     }
-    
 }

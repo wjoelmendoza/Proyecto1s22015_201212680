@@ -13,6 +13,11 @@ public class EstacionG implements IUser{
     private String tipo;
     private int id;
 
+    public EstacionG (int id){
+        this.id = id;
+        this.tipo = Constantes.eg;
+    }
+    
     @Override
     public String getTipo() {
         return tipo;

@@ -1,29 +1,27 @@
-package com.logica;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.logica;
 
-import com.users.Admin;
-import com.webservice.Administrador;
+import com.webservice.EstacionClave;
 import java.io.IOException;
-//import java.io.PrintWriter;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author walter
  */
-@WebServlet(urlPatterns = {"/LogAdmin"})
-public class LogAdmin extends HttpServlet {
-    private boolean log;
+@WebServlet(name = "LogEC", urlPatterns = {"/LogEC"})
+public class LogEC extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,17 +33,19 @@ public class LogAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-//        String nameAdmin = request.getParameter("txtMail");
-//        String passAdmin = request.getParameter("txtPass");
-//        if(nameAdmin.isEmpty() && passAdmin.isEmpty()){
-//            System.out.println("vacios");
-//        }
-        
-        
-      //  response.sendRedirect("/SitioWeb/Admin/.jsp");
-        
-       // System.out.println("processRequest");
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LogEC</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet LogEC at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,9 +60,7 @@ public class LogAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //processRequest(request, response);
-        
+        processRequest(request, response);
     }
 
     /**
@@ -76,20 +74,14 @@ public class LogAdmin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-//        response.encodeRedirectURL("Admin.jsp");
-//        System.out.println("doPost");
         HttpSession sesion = request.getSession();
-        String correo = request.getParameter("txtMail");
-        String password = request.getParameter("txtPass");
-        if(login(correo,password)){
-            log = true;
-            //tentativamente esto funcione para las demas
-            sesion.setAttribute("usuario", new Admin(correo));
-            response.sendRedirect("/SitioWeb/Admin/AgregarAdministrador.jsp");
+        int id = Integer.parseInt(request.getParameter("idEC"));
+        String password =  request.getParameter("passwordEC");
+        if(this.login(id, password)){
+            sesion.setAttribute("usuario", new com.users.EstacionC(id));
+            response.sendRedirect("/SitioWeb/EstacionC/bienvenido.jsp");
         }else{
-            log = false;
-            response.sendRedirect("/SitioWeb/Home.jsp");
+            response.sendRedirect("/SitioWeb/");
         }
     }
 
@@ -102,31 +94,23 @@ public class LogAdmin extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
     
-//no es aplicable este metodo
-//    private static void agregarAdministrador(java.lang.String correoAdmo, java.lang.String passAdmo) {
-//        com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
-//        com.webservice.WSEDD port = service.getWSEDDPort();
-//        port.agregarAdministrador(correoAdmo, passAdmo);
-//    }
-//    
-
-    private Administrador logAdmin(java.lang.String lcorreoAdmin) {
-        com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
-        com.webservice.WSEDD port = service.getWSEDDPort();
-        return port.logAdmin(lcorreoAdmin);
-    }
-
-    private boolean login(String correo, String password){
+    private boolean login(int lidEC, String password){
         boolean aux = false;
-        Administrador auxA = this.logAdmin(correo);
-        System.out.println(auxA);
-        if(auxA!=null){
-            if(password.equals(auxA.getContrasenha()))
+        EstacionClave auxc = this.logEC(lidEC);
+        if(auxc!=null){
+            if(password.equals(auxc.getContrasenha())){
                 aux = true;
+            }
         }
-        
         return aux;
     }
-    
+
+    private EstacionClave logEC(int lidEG) {
+        com.webservice.WSEDD_Service service = new com.webservice.WSEDD_Service();
+        com.webservice.WSEDD port = service.getWSEDDPort();
+        return port.logEC(lidEG);
+    }
+
 }

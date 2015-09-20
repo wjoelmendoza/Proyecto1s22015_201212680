@@ -34,7 +34,7 @@ public class Lista {
     }
     
     public Comparar buscar(Comparar bsq){
-        Comparar aux = null;
+        Comparar aux2 = null,aux;
         NodoLD<Comparar> aux1 = origen;
         
         if(!vacio()){
@@ -45,7 +45,7 @@ public class Lista {
                 aux1 = aux1.getSiguiente();
             }
         }
-        return aux;
+        return aux2;
     }
     
     public String getNombreGraf(){

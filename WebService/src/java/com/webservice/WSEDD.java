@@ -15,6 +15,8 @@ import com.estructura.Chofer;
 import com.estructura.EstacionClave;
 import com.estructura.EstacionGeneral;
 import com.estructura.ListaBuses;
+import com.estructura.ListaRuta;
+import com.estructura.Ruta;
 import javax.jws.Oneway;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -31,6 +33,7 @@ public class WSEDD {
     ArbolChofer arbolChofer = new ArbolChofer();
     ArbolEstacionC estacionesC = new ArbolEstacionC();
     ArbolEstacionG estacionesG = new ArbolEstacionG();
+    ListaRuta rutas = new ListaRuta();
 
     /**
      * Web service operation
@@ -262,7 +265,7 @@ public class WSEDD {
     @WebMethod(operationName = "logChofer")
     public Chofer logChofer(@WebParam(name = "lclaveChofer") int lclaveChofer) {
         //TODO write your implementation code here:
-        return null;
+        return arbolChofer.buscar(lclaveChofer);
     }
 
     /**
@@ -286,6 +289,18 @@ public class WSEDD {
         //TODO write your implementation code here:
         return estacionesC.buscar(lidEG);
     }
+
+    /**
+     * Web service operation
+     * @param nuevaRuta
+     */
+    @WebMethod(operationName = "agregarRuta")
+    @Oneway
+    public void agregarRuta(@WebParam(name = "nuevaRuta") Ruta nuevaRuta) {
+        if(nuevaRuta!=null)
+            rutas.agregar(nuevaRuta);
+    }
+
     
 
 }

@@ -5,8 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
+<%@include file = "../WEB-INF/jspf/vAdmin.jspf" %>
+<%validarSesion(request.getSession(),response);%>
 <html>
+    
     <head>
         <%@include file="../WEB-INF/jspf/MasterStyle.jspf" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

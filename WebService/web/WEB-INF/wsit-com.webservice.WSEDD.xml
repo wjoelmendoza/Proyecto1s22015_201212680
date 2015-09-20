@@ -49,6 +49,8 @@
     <message name="logEGResponse"/>
     <message name="logEC"/>
     <message name="logECResponse"/>
+    <message name="agregarRuta"/>
+    <message name="agregarRutaResponse"/>
     <portType name="WSEDD">
         <operation name="agregarAdministrador">
             <input message="tns:agregarAdministrador"/>
@@ -138,6 +140,10 @@
             <input message="tns:logEC"/>
             <output message="tns:logECResponse"/>
         </operation>
+        <operation name="agregarRuta">
+            <input message="tns:agregarRuta"/>
+            <output message="tns:agregarRutaResponse"/>
+        </operation>
     </portType>
     <binding name="WSEDDPortBinding" type="tns:WSEDD">
         <operation name="agregarAdministrador">
@@ -225,6 +231,10 @@
             <output/>
         </operation>
         <operation name="logEC">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="agregarRuta">
             <input/>
             <output/>
         </operation>
@@ -345,6 +355,30 @@
         </wsp:ExactlyOne>
     </wsp:Policy>
     <wsp:Policy wsu:Id="WSEDDPortBinding_loginEC_Output_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_operation_Input_Policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:EncryptedParts>
+                    <sp:Body/>
+                </sp:EncryptedParts>
+                <sp:SignedParts>
+                    <sp:Body/>
+                </sp:SignedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSEDDPortBinding_operation_Output_Policy">
         <wsp:ExactlyOne>
             <wsp:All>
                 <sp:EncryptedParts>
